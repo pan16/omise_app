@@ -1,0 +1,1 @@
+/Users/momo1116/workspace/omise_app/vendor/bundle/gems/ffi-1.9.22/ext/ffi_c/libffi/src/x86/ffitarget.h
