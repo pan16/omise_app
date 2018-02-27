@@ -5,10 +5,9 @@ Rails.application.routes.draw do
 
   resources :users, except: %i(new)
   resources :stores, except: %i(new)
-  resources :sessions, except: %i(new)
+  resources :sessions, only: %i(new create destroy)
 
   get '/user/sign_up',    to: 'users#new'
   get '/store/sign_up',    to: 'stores#new'
-  get '/session/log_in',    to: 'sessions#new'
 
 end
