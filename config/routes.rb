@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#home'
   get '/help', to: 'static_pages#help'
 
-  resources :users, except: %i(new)
+  resources :users, except: %i(new index)
   resources :stores, except: %i(new)
   resources :sessions, only: %i(new create destroy)
 
