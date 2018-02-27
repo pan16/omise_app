@@ -3,20 +3,12 @@ Rails.application.routes.draw do
   root to: 'static_pages#home'
   get '/help', to: 'static_pages#help'
 
-  resources :users
-  resources :stores
-  resources :sessions
+  resources :users, except: %i(new)
+  resources :stores, except: %i(new)
+  resources :sessions, except: %i(new)
 
   get '/user/sign_up',    to: 'users#new'
-  post '/user',    to: 'users#create'
-  put '/user/:id',    to: 'users#update'
-  
   get '/store/sign_up',    to: 'stores#new'
-  post '/store',    to: 'stores#create'
-  put '/store/:id',    to: 'stores#update'
-  
   get '/session/log_in',    to: 'sessions#new'
-  post '/session',    to: 'sessions#create'
-  get '/session/log_out',    to: 'sessions#destroy'
 
 end
