@@ -1,15 +1,18 @@
 class CreateStoreInfomations < ActiveRecord::Migration[5.1]
   def change
-    create_table :store_infomations do |t|
+    create_table :store_infomations id: false do |t|
+      t.integer :id, null: false
       t.integer :store_id
       t.string :address
       t.string :phone
-      t.string :holiday
+      t.integer :holiday1
+      t.integer :holiday2
+      t.integer :holiday3
       t.string :business_hour
-      t.string :category
-      t.string :menu
+      t.integer :category, default: 0
 
       t.timestamps
     end
+    add_index :store_informations :id, unique: true
   end
 end
