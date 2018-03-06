@@ -10,9 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226063735) do
+ActiveRecord::Schema.define(version: 20180227163856) do
+
+  create_table "store_infomations", force: :cascade do |t|
+    t.integer "store_id"
+    t.string "address"
+    t.string "phone"
+    t.string "holiday"
+    t.string "business_hour"
+    t.string "category"
+    t.string "menu"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "token_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_points", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "store_id"
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "token_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
