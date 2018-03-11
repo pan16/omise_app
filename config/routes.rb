@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   get '/user/sign_up',    to: 'users#new'
   get '/store/sign_up',    to: 'stores#new'
+  put '/point/:store_id',	to: 'user_points#update'
 
 end

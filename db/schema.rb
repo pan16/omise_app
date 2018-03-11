@@ -12,16 +12,20 @@
 
 ActiveRecord::Schema.define(version: 20180227163856) do
 
-  create_table "store_infomations", force: :cascade do |t|
+  create_table "store_infomations", id: false, force: :cascade do |t|
+    t.integer "id", null: false
     t.integer "store_id"
     t.string "address"
     t.string "phone"
-    t.string "holiday"
+    t.integer "holiday1"
+    t.integer "holiday2"
+    t.integer "holiday3"
     t.string "business_hour"
-    t.string "category"
-    t.string "menu"
+    t.integer "category", default: 0
+    t.string "point_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_store_infomations_on_id", unique: true
   end
 
   create_table "stores", force: :cascade do |t|
@@ -39,6 +43,8 @@ ActiveRecord::Schema.define(version: 20180227163856) do
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_user_points_on_store_id"
+    t.index ["user_id"], name: "index_user_points_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
